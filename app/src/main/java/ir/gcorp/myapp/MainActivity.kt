@@ -42,8 +42,6 @@ class MainActivity : AppCompatActivity() {
 
     fun checkInput(input: Int) {
 
-
-
         if (input > randomNumber) {
             infoText.text = "Input is bigger than generated number"
         } else if (input < randomNumber) {
