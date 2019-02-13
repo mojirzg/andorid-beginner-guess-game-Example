@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">MyApp</string>
     <string name="enter_your_guess">Enter your guess</string>
+    <string name="guess_name">Guess a number between 0 to 100</string>
+    <string name="submit">Submit</string>
+    <string name="you_lost">You just lost my friend</string>
+    <string name="input_is_bigger">Input is bigger than generated number</string>
+    <string name="input_is_less">Input is less than generated number</string>
+    <string name="you_win">spot on</string>
+    <string name="empty">Empty</string>
 </resources>

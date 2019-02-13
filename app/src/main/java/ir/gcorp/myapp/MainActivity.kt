@@ -3,6 +3,8 @@ package ir.gcorp.myapp
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.inputmethod.EditorInfo
+import android.widget.Button
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
@@ -18,22 +20,56 @@ class MainActivity : AppCompatActivity() {
         randomNumber = Random().nextInt(100)
 
 
+        inputText.setOnEditorActionListener { _, actionId, _ ->
+            if (actionId == EditorInfo.IME_ACTION_DONE) {
+
+                submit.performClick()
+
+
+        }
+            false
+
+        }
+
+
+
         submit.setOnClickListener {
 
             Log.i("appLog", "$randomNumber")
 
+
+            //region Logic
             if (step <= 5) {
 
-                val input = inputText.text.toString().toInt()
-                checkInput(input)
+                if (inputText.text.isNotBlank()){
 
-                step++
+                    val input = inputText.text.toString().toInt()
+
+                    checkInput(input)
+
+                    step++
+
+
+                }else{
+                    inputText.error = getString(R.string.empty)
+                }
+
+
 
             }else {
 
                 gameFinished()
-                infoText.text = "You just lost my friend"
+                infoText.text = getString(R.string.you_lost)
             }
+
+            //endregion
+
+
+
+
+
+
+
 
 
         }
@@ -43,11 +79,11 @@ class MainActivity : AppCompatActivity() {
     fun checkInput(input: Int) {
 
         if (input > randomNumber) {
-            infoText.text = "Input is bigger than generated number"
+            infoText.text = getString(R.string.input_is_bigger)
         } else if (input < randomNumber) {
-            infoText.text = "Input is less than generated number"
+            infoText.text = getString(R.string.input_is_less)
         } else {
-            infoText.text = "spot on"
+            infoText.text = getString(R.string.you_win)
             gameFinished()
         }
 

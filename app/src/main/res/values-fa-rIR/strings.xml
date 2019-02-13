@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MyApp</string>
+    <string name="guess_name">یک عدد بین صفر تا صد حدس بزنید</string>
+    <string name="submit">ثبت</string>
+    <string name="you_lost">شما باختید دوست عزیز</string>
+    <string name="input_is_bigger">عدد وارد شده بزرگتر است</string>
+    <string name="input_is_less">عدد وارد شده کوچک تر است</string>
+    <string name="you_win">تبریک، بردید</string>
+    <string name="enter_your_guess">حدس خود را وارد کنید</string>
+    <string name="empty">خالیست</string>
+</resources>
