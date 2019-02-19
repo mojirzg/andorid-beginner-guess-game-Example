@@ -8,4 +8,8 @@
     <string name="input_is_less">Input is less than generated number</string>
     <string name="you_win">spot on</string>
     <string name="empty">Empty</string>
+    <string name="detail">Detail</string>
+    <string name="total_game_played">Total Game Played :</string>
+    <string name="lost">Lost</string>
+    <string name="won">Won</string>
 </resources>

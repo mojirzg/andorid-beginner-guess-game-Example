@@ -9,4 +9,8 @@
     <string name="you_win">تبریک، بردید</string>
     <string name="enter_your_guess">حدس خود را وارد کنید</string>
     <string name="empty">خالیست</string>
+    <string name="detail">جزییات</string>
+    <string name="total_game_played">تعداد بازی های انجام شده</string>
+    <string name="lost">باخت</string>
+    <string name="won">برد</string>
 </resources>

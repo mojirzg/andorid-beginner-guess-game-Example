@@ -1,10 +1,11 @@
 package ir.gcorp.myapp
 
+import android.content.Context
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.inputmethod.EditorInfo
-import android.widget.Button
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
@@ -35,7 +36,7 @@ class MainActivity : AppCompatActivity() {
 
         submit.setOnClickListener {
 
-            Log.i("appLog", "$randomNumber")
+            Log.i("appLog", "random number : $randomNumber")
 
 
             //region Logic
@@ -57,9 +58,19 @@ class MainActivity : AppCompatActivity() {
 
 
             }else {
+                //Lost
+                val pref = getSharedPreferences("ir.gcorp.myapp", Context.MODE_PRIVATE)
+                val lostCount = pref.getInt("lost",0)
+                Log.i("appLog","lostCount : $lostCount")
+                pref.edit().putInt("lost", lostCount + 1 ).apply()
+
+
 
                 gameFinished()
                 infoText.text = getString(R.string.you_lost)
+
+
+
             }
 
             //endregion
@@ -74,6 +85,21 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+
+        detail.setOnClickListener {
+            startActivity(Intent(this,DetailActivity::class.java))
+        }
+
+
+
+//        val db = Database(this)
+//
+//        db.addString("k","jnkn")
+//
+//        db.getString("k")
+
+
+
     }
 
     fun checkInput(input: Int) {
@@ -83,8 +109,18 @@ class MainActivity : AppCompatActivity() {
         } else if (input < randomNumber) {
             infoText.text = getString(R.string.input_is_less)
         } else {
+
+            val pref = getSharedPreferences("ir.gcorp.myapp", Context.MODE_PRIVATE)
+            val winCount = pref.getInt("win",0)
+            Log.i("appLog","winCount : $winCount")
+            pref.edit().putInt("win", winCount + 1 ).apply()
+
+
+
             infoText.text = getString(R.string.you_win)
             gameFinished()
+
+
         }
 
         stepText.text = "$step / 5"
